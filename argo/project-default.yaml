@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: default
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  destinations:
+  - namespace: '*'
+    server: '*'
+  sourceNamespaces:
+  - argocd
+  sourceRepos:
+  - '*'
+  # Project roles for RBAC
+  roles:
+  - name: admin-bot
+    description: CI/CD pipeline with sync-only access
+    policies:
+    - p, proj:default:admin-bot, applications, *, default/*, allow
+    - p, proj:default:admin-bot, applicationsets, *, default/*, allow
+    - p, proj:default:admin-bot, repositories, *, default/*, allow
+    - p, proj:default:admin-bot, clusters, *, default/*, allow
+    - p, proj:default:admin-bot, exec, *, default/*, allow
+    - p, proj:default:admin-bot, logs, *, default/*, allow

@@ -1,0 +1,17 @@
+apiVersion: kagent.dev/v1alpha1
+kind: MCPServer
+metadata:
+  name: argocd-mcp-server
+  namespace: kagent
+spec:
+  deployment:
+    args:
+    - "argocd-mcp@latest"
+    - "stdio"
+    env:
+      ARGOCD_BASE_URL: "https://3b77f7de174baedf242274e2661af340c0cd978ace1356150.eks-capabilities.us-west-2.amazonaws.com"
+    cmd: npx
+    port: 3000
+    secretRefs:
+    - name: argocd-mcp-secret
+  transportType: stdio

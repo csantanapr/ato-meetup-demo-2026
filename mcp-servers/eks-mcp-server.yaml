@@ -1,0 +1,17 @@
+apiVersion: kagent.dev/v1alpha1
+kind: MCPServer
+metadata:
+  name: eks-mcp-server
+  namespace: kagent
+spec:
+  deployment:
+    cmd: uvx
+    args:
+    - "mcp-proxy-for-aws@latest"
+    - "https://eks-mcp.us-west-2.api.aws/mcp"
+    - --service
+    - eks-mcp
+    - region
+    - us-west-2
+  transportType: stdio
+

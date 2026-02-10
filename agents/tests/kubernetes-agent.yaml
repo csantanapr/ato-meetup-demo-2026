@@ -1,0 +1,20 @@
+apiVersion: kagent.dev/v1alpha2
+kind: Agent
+metadata:
+  name: kubernetes-agent
+  namespace: kagent
+spec:
+  declarative:
+    modelConfig: bedrock-anthropic-claude-4-5-sonnet
+    stream: false
+    systemMessage: |-
+      You are a Kubernetes expert
+    tools:
+      - type: McpServer
+        mcpServer:
+          apiGroup: kagent.dev
+          kind: MCPServer
+          name: kubernetes-mcp-server
+          toolNames: []
+  description: "A smart assistant for kubernetes"
+  type: Declarative

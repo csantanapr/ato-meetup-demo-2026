@@ -1,0 +1,3 @@
+- Can you create a new github repo (private) for all things meetup demo in the gitub org https://github.com/csantanapr-eks-capabilities-demos The contents of the repo should have web app source code and configuration to be deploy to kubernetes, including workflows to build and push container image to ghcr.io under the org create initial repo with a README.md the all the work to be done with pull requests and merged pull_requests
+- Use simple kubernetes yaml files
+- Web app should be a simple "Hello World" style application wiht cyber punk theme
